@@ -37,7 +37,7 @@ class WineDetailsFragment : BaseFragment(R.layout.fragment_wine_details) {
     }
 
     override fun getToolbar(): Toolbar? {
-        TODO("Not yet implemented")
+        return null
     }
 
     private fun observeLiveData() {

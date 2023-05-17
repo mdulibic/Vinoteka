@@ -14,6 +14,5 @@ data class Wine(
     val gastroRecommendation: String,
     val description: String,
     val price: Double,
-    val image: Bitmap,
     val sort: Sort
 )

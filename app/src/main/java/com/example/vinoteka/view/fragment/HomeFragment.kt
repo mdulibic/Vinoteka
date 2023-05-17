@@ -4,21 +4,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.vinoteka.R
 import com.example.vinoteka.databinding.FragmentHomeBinding
+import com.example.vinoteka.utils.SpacingItemDecorator
 import com.example.vinoteka.utils.WineAdapter
-import com.example.vinoteka.utils.VerticalSpaceItemDecorator
 import com.example.vinoteka.utils.toPx
+import com.example.vinoteka.utils.wineList
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var wineListdapter: WineAdapter
+    private lateinit var wineListAdapter: WineAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,27 +36,36 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
+        setOnClick()
     }
 
+    private fun setOnClick() {
+        binding.btnAdd.setOnClickListener {
+            svm.navigate(HomeFragmentDirections.actionNavigationHomeToAddWineFragment())
+        }
+    }
+
+
     private fun initRecyclerView() {
-        wineListdapter = WineAdapter()
-        val verticalSpace = VerticalSpaceItemDecorator(resources.getInteger(R.integer.margin_tv_item).toPx())
-        /*
-        binding.rvEuroCentsList.apply {
-            adapter = wineListdapter
-            layoutManager = LinearLayoutManager(context)
-            addItemDecoration(verticalSpace)
+        wineListAdapter = WineAdapter {
+            svm.navigate(HomeFragmentDirections.actionNavigationHomeToNavigationWineDetails(it))
+        }
+        val spacingDecoration = SpacingItemDecorator(resources.getInteger(R.integer.margin_tv_item).toPx())
+        binding.rvWineList.apply {
+            adapter = wineListAdapter
+            layoutManager = GridLayoutManager(requireContext(), 2)
+            addItemDecoration(spacingDecoration)
         }
 
-         */
-        /*
-            val items = listOf()
-        euroCentsListdapter.setData(items)
-         */
+        wineListAdapter.setData(wineList)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun getToolbar(): Toolbar? {
+        return null
     }
 }

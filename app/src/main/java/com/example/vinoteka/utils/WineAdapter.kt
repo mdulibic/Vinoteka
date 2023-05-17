@@ -1,9 +1,12 @@
 package com.example.vinoteka.utils
 
 import android.view.LayoutInflater
+import android.view.View
+import android.view.View.OnClickListener
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.vinoteka.databinding.ItemEuroCentRateBinding
+import com.example.vinoteka.R
+import com.example.vinoteka.databinding.ItemWineProductBinding
 import com.example.vinoteka.model.Wine
 
 /**
@@ -13,16 +16,33 @@ import com.example.vinoteka.model.Wine
  */
 class WineAdapter(
     private var wineList: ArrayList<Wine> = arrayListOf(),
+    private val onItemClicked: (String) -> Unit
 ) : RecyclerView.Adapter<WineAdapter.WineViewHolder>() {
+
 
     /**
      * View holder for the adapter.
      * @param binding Binding for the item layout.
      * @see [ItemEuroCentRateBinding](https://developer.android.com/topic/libraries/view-binding#kotlin)
      */
-    inner class WineViewHolder(private val binding: ItemEuroCentRateBinding) :
+    inner class WineViewHolder(private val binding: ItemWineProductBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+        private var id: String? = null
+
+        private val clickListener = View.OnClickListener {
+            if(id == null) return@OnClickListener
+
+            onItemClicked(id!!)
+        }
         fun bind(wine: Wine) {
+            id = wine.id
+            binding.apply {
+                wineName.text = wine.name
+                wineHarvest.text = wine.harvest
+                winePrice.text = binding.root.context.resources.getString(R.string.cijena_1_s_eur, wine.price.toString())
+            }
+            binding.root.setOnClickListener(clickListener)
         }
     }
 
@@ -35,7 +55,7 @@ class WineAdapter(
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WineViewHolder {
         val binding =
-            ItemEuroCentRateBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemWineProductBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return WineViewHolder(binding)
     }
 

@@ -11,7 +11,7 @@
         tools:layout="@layout/fragment_wine_details" >
         <action
             android:id="@+id/action_navigation_wine_details_to_navigation_home"
-            app:destination="@id/navigation_home" />
+            app:destination="@id/navigation_home"/>
     </fragment>
 
     <fragment
@@ -20,7 +20,14 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_navigation_home_to_navigation_wine_details"
-            app:destination="@id/navigation_wine_details" />
+            app:destination="@id/navigation_wine_details">
+        <argument
+            android:name="id"
+            app:argType="string" />
+        </action>
+        <action
+            android:id="@+id/action_navigation_home_to_addWineFragment"
+            app:destination="@id/addWineFragment"/>
     </fragment>
     <fragment
         android:id="@+id/navigation_welcome"
@@ -30,4 +37,8 @@
             android:id="@+id/action_welcomeFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
     </fragment>
+    <fragment
+        android:id="@+id/addWineFragment"
+        android:name="com.example.vinoteka.view.fragment.AddWineFragment"
+        tools:layout="@layout/fragment_add_wine" />
 </navigation>

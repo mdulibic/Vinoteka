@@ -2,9 +2,10 @@
 <resources>
     <color name="colorPrimaryDark">#695958</color>
     <color name="colorPrimary">#6D454C</color>
-    <color name="btnColor">#433633</color>
-    <color name="bgColor">#433633</color>
+    <color name="btnColor">#2D3142</color>
+    <color name="bgColor">#2D3142</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="red">#ad1207</color>
+    <color name="pink">#F0B7B3</color>
 </resources>

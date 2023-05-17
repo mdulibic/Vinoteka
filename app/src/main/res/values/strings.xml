@@ -4,4 +4,6 @@
     <string name="pogre_an_e_mail_format">Pogrešan e-mail format</string>
     <string name="e_mail">E-mail</string>
     <string name="vinoteka">Vinoteka</string>
+    <string name="professional_wine_selector">Professional wine selector</string>
+    <string name="cijena_1_s_eur">%1$s €</string>
 </resources>
