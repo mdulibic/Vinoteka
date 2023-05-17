@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_welcome">
+
+    <fragment
+        android:id="@+id/navigation_wine_details"
+        android:name="com.example.vinoteka.view.fragment.WineDetailsFragment"
+        tools:layout="@layout/fragment_wine_details" >
+        <action
+            android:id="@+id/action_navigation_wine_details_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.vinoteka.view.fragment.HomeFragment"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_wine_details"
+            app:destination="@id/navigation_wine_details" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_welcome"
+        android:name="com.example.vinoteka.view.fragment.WelcomeFragment"
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_welcomeFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+</navigation>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Vinoteka</string>
+    <string name="prijavi_se">Prijavi se</string>
+    <string name="pogre_an_e_mail_format">Pogrešan e-mail format</string>
+    <string name="e_mail">E-mail</string>
+    <string name="vinoteka">Vinoteka</string>
+</resources>
