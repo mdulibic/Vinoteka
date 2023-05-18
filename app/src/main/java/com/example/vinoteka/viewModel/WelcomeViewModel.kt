@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class WelcomeViewModel @Inject constructor(
-    private val sessionManager: SessionManager
+    private val sessionManager: SessionManager,
 ) : ViewModel() {
 
     private val _emailValidationSuccess = MutableLiveData<Unit>()
@@ -24,14 +24,14 @@ class WelcomeViewModel @Inject constructor(
         val emailPattern = Regex("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$")
         if (emailPattern.matches(email)) {
             _emailValidationSuccess.value = Unit
-            sessionManager.isVerified = true
+            sessionManager.adminEmail = email
         } else {
             _emailValidationFail.value = Unit
         }
     }
 
     fun checkIfEmailValidated() {
-        if(sessionManager.isVerified) {
+        sessionManager.adminEmail?.let {
             _emailValidationSuccess.value = Unit
         }
     }

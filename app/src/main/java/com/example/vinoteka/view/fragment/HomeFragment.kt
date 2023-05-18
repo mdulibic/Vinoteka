@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.vinoteka.R
 import com.example.vinoteka.databinding.FragmentHomeBinding
@@ -13,6 +14,8 @@ import com.example.vinoteka.utils.SpacingItemDecorator
 import com.example.vinoteka.utils.WineAdapter
 import com.example.vinoteka.utils.toPx
 import com.example.vinoteka.utils.wineList
+import com.example.vinoteka.viewModel.HomeViewModel
+import com.example.vinoteka.viewModel.WelcomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,6 +25,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     private val binding get() = _binding!!
 
     private lateinit var wineListAdapter: WineAdapter
+
+    private lateinit var viewModel: HomeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,6 +42,19 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
         setOnClick()
+
+        viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
+
+        binding.tvAdminName.text = viewModel.getAdminEmail()
+
+        // viewModel.getWines()
+        observeLiveData()
+    }
+
+    private fun observeLiveData() {
+        viewModel.wineListSuccess.observe(viewLifecycleOwner) {
+            wineListAdapter.setData(it)
+        }
     }
 
     private fun setOnClick() {

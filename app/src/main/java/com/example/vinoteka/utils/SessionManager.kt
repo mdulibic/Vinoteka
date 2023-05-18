@@ -9,16 +9,16 @@ class SessionManager @Inject constructor(@ApplicationContext private val appCont
 
     companion object {
         private const val PREFERENCES_APP = "prefs_app"
-        private const val VERIFIED = "verified"
+        private const val ADMIN_EMAIL = "adminEmail"
     }
 
     private val appPreferences: SharedPreferences by lazy {
         appContext.getSharedPreferences(PREFERENCES_APP, Context.MODE_PRIVATE)
     }
 
-    var isVerified: Boolean
-        get() = appPreferences.getBoolean(VERIFIED, false)
+    var adminEmail: String?
+        get() = appPreferences.getString(ADMIN_EMAIL, null)
         set(value) {
-            appPreferences.edit().putBoolean(VERIFIED, value).apply()
+            appPreferences.edit().putString(ADMIN_EMAIL, value).apply()
         }
 }

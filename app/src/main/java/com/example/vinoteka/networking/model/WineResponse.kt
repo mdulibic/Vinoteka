@@ -9,7 +9,7 @@ data class WineResponse(
     val name: String,
     val harvest: String,
     val alcoholPercentage: Float,
-    val maltster: Maltster,
+    val maltster: String,
     val quality: String,
     val vineyard: String,
     val temperatureOfServing: String,

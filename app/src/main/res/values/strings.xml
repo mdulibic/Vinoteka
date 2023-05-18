@@ -6,4 +6,15 @@
     <string name="vinoteka">Vinoteka</string>
     <string name="professional_wine_selector">Professional wine selector</string>
     <string name="cijena_1_s_eur">%1$s €</string>
+    <string name="dodaj_vino">Dodaj vino</string>
+    <string name="name">Name</string>
+    <string name="harvest">Harvest</string>
+    <string name="alcohol_percentage">Alcohol percentage</string>
+    <string name="maltster">Maltster</string>
+    <string name="quality">Quality</string>
+    <string name="wineyard">Wineyard</string>
+    <string name="gastro_recommendation">Gastro recommendation</string>
+    <string name="price">Price</string>
+    <string name="description">Description</string>
+    <string name="add_wine">Add wine</string>
 </resources>
