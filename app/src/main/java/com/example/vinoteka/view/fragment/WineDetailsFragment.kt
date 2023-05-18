@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.vinoteka.R
 import com.example.vinoteka.databinding.FragmentHomeBinding
 import com.example.vinoteka.databinding.FragmentWineDetailsBinding
-import com.example.vinoteka.viewModel.ExchangeViewModel
+import com.example.vinoteka.viewModel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,7 +18,7 @@ class WineDetailsFragment : BaseFragment(R.layout.fragment_wine_details) {
     private var _binding: FragmentWineDetailsBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var viewModel: ExchangeViewModel
+    private lateinit var viewModel: HomeViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,7 +31,7 @@ class WineDetailsFragment : BaseFragment(R.layout.fragment_wine_details) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this)[ExchangeViewModel::class.java]
+        viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         observeLiveData()
         setOnClickClickListeners()
     }
