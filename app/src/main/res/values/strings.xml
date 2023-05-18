@@ -17,4 +17,6 @@
     <string name="price">Price</string>
     <string name="description">Description</string>
     <string name="add_wine">Add wine</string>
+    <string name="wine_details">Wine details</string>
+    <string name="sort">Sort</string>
 </resources>

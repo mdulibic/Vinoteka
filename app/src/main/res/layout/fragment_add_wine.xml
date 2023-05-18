@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/tv_admin_name"
+                android:id="@+id/tv_add_wine"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_semibold"
@@ -59,6 +59,29 @@
             app:layout_constraintTop_toBottomOf="@id/tv_name" />
 
         <TextView
+            android:id="@+id/tv_sort"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="@string/sort"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editTextName" />
+
+        <Spinner
+            android:id="@+id/sort_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_sort"
+            />
+
+        <TextView
             android:id="@+id/tv_harvest"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -68,7 +91,7 @@
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editTextName" />
+            app:layout_constraintTop_toBottomOf="@id/sort_spinner" />
 
         <!-- Harvest -->
         <EditText
@@ -117,16 +140,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/editTextAlcoholPercentage" />
 
-        <!-- Maltster -->
-        <EditText
-            android:id="@+id/editTextMaltster"
-            android:layout_width="0dp"
+        <Spinner
+            android:id="@+id/maltster_spinner"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvMaltster" />
+            app:layout_constraintTop_toBottomOf="@+id/tvMaltster"
+            />
 
         <TextView
             android:id="@+id/tvQuality"
@@ -138,7 +161,7 @@
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editTextMaltster" />
+            app:layout_constraintTop_toBottomOf="@id/maltster_spinner" />
 
         <!-- Quality -->
         <EditText

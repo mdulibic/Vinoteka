@@ -1,5 +1,6 @@
 package com.example.vinoteka.networking
 
+import com.example.vinoteka.BuildConfig
 import com.squareup.moshi.JsonDataException
 import com.squareup.moshi.JsonReader
 import com.squareup.moshi.Moshi
@@ -34,6 +35,7 @@ object NetworkModule {
         return Retrofit.Builder()
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .client(okHttpClient)
+            .baseUrl("http://localhost:8080")
             .build()
     }
 

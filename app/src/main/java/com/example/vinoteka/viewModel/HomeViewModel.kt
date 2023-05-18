@@ -8,6 +8,7 @@ import com.example.vinoteka.model.Maltster
 import com.example.vinoteka.model.Sort
 import com.example.vinoteka.model.Wine
 import com.example.vinoteka.networking.WineRepository
+import com.example.vinoteka.networking.model.AddWineRequest
 import com.example.vinoteka.networking.model.WineResponse
 import com.example.vinoteka.utils.SessionManager
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,12 +19,16 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val sessionManager: SessionManager,
-    private val wineRepository: WineRepository
+    private val wineRepository: WineRepository,
 ) : ViewModel() {
 
     private val _wineListSuccess = MutableLiveData<List<Wine>>()
     val wineListSuccess: LiveData<List<Wine>>
         get() = _wineListSuccess
+
+    private val _sortsSuccess = MutableLiveData<List<Sort>>()
+    val sortsSuccess: LiveData<List<Sort>>
+        get() = _sortsSuccess
 
     fun getAdminEmail() = sessionManager.adminEmail
 
@@ -33,6 +38,15 @@ class HomeViewModel @Inject constructor(
         }
         _wineListSuccess.value = list!!
     }
+
+    fun getSorts() = viewModelScope.launch {
+        val list = wineRepository.getSorts().body()
+        _sortsSuccess.value = list!!
+    }
+
+    fun addWine(wine: AddWineRequest) = viewModelScope.launch { wineRepository.addWine(wine = wine) }
+
+    fun deleteWine(id: String) = viewModelScope.launch { wineRepository.deleteWine(id = id) }
 
     private fun WineResponse.toWine(): Wine {
         return Wine(
@@ -47,7 +61,7 @@ class HomeViewModel @Inject constructor(
             gastroRecommendation = this.gastroRecommendation,
             description = this.description,
             price = this.price,
-            sort = this.sort
+            sort = this.sort,
         )
     }
 
@@ -63,5 +77,4 @@ class HomeViewModel @Inject constructor(
             }
         }
     }
-
 }

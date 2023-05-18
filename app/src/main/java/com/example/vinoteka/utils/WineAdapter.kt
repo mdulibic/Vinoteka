@@ -16,7 +16,8 @@ import com.example.vinoteka.model.Wine
  */
 class WineAdapter(
     private var wineList: ArrayList<Wine> = arrayListOf(),
-    private val onItemClicked: (String) -> Unit
+    private val onItemClicked: (String) -> Unit,
+    private val onItemDelete: (String) -> Unit
 ) : RecyclerView.Adapter<WineAdapter.WineViewHolder>() {
 
 
@@ -35,6 +36,12 @@ class WineAdapter(
 
             onItemClicked(id!!)
         }
+
+        private val deleteClickListener = View.OnClickListener {
+            if(id == null) return@OnClickListener
+
+            onItemDelete(id!!)
+        }
         fun bind(wine: Wine) {
             id = wine.id
             binding.apply {
@@ -43,6 +50,7 @@ class WineAdapter(
                 winePrice.text = binding.root.context.resources.getString(R.string.cijena_1_s_eur, wine.price.toString())
             }
             binding.root.setOnClickListener(clickListener)
+            binding.btnDelete.setOnClickListener(deleteClickListener)
         }
     }
 

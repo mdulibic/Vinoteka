@@ -40,5 +40,9 @@
     <fragment
         android:id="@+id/addWineFragment"
         android:name="com.example.vinoteka.view.fragment.AddWineFragment"
-        tools:layout="@layout/fragment_add_wine" />
+        tools:layout="@layout/fragment_add_wine" >
+        <action
+            android:id="@+id/action_addWineFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
 </navigation>

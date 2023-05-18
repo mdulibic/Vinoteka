@@ -2,6 +2,7 @@ package com.example.vinoteka.networking
 
 import com.example.vinoteka.model.OrderResponse
 import com.example.vinoteka.model.Sort
+import com.example.vinoteka.networking.model.AddWineRequest
 import com.example.vinoteka.networking.model.WineResponse
 import retrofit2.Response
 import javax.inject.Inject
@@ -20,7 +21,7 @@ class WineRepository @Inject constructor(private val apiService: VinotekaApiServ
         return apiService.getSorts()
     }
 
-    suspend fun addWine(wine: WineResponse) {
+    suspend fun addWine(wine: AddWineRequest) {
         apiService.addWine(wine = wine)
     }
 

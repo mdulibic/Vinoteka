@@ -2,6 +2,7 @@ package com.example.vinoteka.networking
 
 import com.example.vinoteka.model.OrderResponse
 import com.example.vinoteka.model.Sort
+import com.example.vinoteka.networking.model.AddWineRequest
 import com.example.vinoteka.networking.model.WineResponse
 import retrofit2.Response
 import retrofit2.http.*
@@ -20,7 +21,7 @@ interface VinotekaApiService {
     suspend fun deleteWine(id: String): Response<Unit>
 
     @POST("/addWine")
-    suspend fun addWine(wine: WineResponse): Response<Unit>
+    suspend fun addWine(wine: AddWineRequest): Response<Unit>
 
     @PUT("/updateWine")
     fun updateWine(wine: WineResponse): Response<Unit>
