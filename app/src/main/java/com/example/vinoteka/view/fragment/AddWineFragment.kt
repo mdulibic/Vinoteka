@@ -28,7 +28,7 @@ class AddWineFragment : BaseFragment(R.layout.fragment_add_wine) {
 
     private val maltsters = mutableListOf(*Maltster.values())
 
-    private var selectedSort: Sort? = null
+    private var selectedSort: Long? = null
 
     private var selectedMaltster: Maltster? = null
 
@@ -103,7 +103,7 @@ class AddWineFragment : BaseFragment(R.layout.fragment_add_wine) {
                             position: Int,
                             p3: Long,
                         ) {
-                            selectedSort = sorts[position]
+                            selectedSort = sorts[position].id
                         }
                     }
             }

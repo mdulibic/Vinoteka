@@ -66,7 +66,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                 svm.navigate(HomeFragmentDirections.actionNavigationHomeToNavigationWineDetails(it))
             },
             onItemDelete = {
-                viewModel.deleteWine(id = it)
+                // viewModel.deleteWine(id = it)
+                viewModel.getWines()
             },
         )
         val spacingDecoration =

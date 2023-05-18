@@ -9,6 +9,9 @@
         android:id="@+id/navigation_wine_details"
         android:name="com.example.vinoteka.view.fragment.WineDetailsFragment"
         tools:layout="@layout/fragment_wine_details" >
+        <argument
+            android:name="id"
+            app:argType="string" />
         <action
             android:id="@+id/action_navigation_wine_details_to_navigation_home"
             app:destination="@id/navigation_home"/>

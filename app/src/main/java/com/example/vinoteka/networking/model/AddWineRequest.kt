@@ -13,5 +13,5 @@ data class AddWineRequest(
     val gastroRecommendation: String,
     val description: String,
     val price: Double,
-    val sort: Sort
+    val sort: Long
 )

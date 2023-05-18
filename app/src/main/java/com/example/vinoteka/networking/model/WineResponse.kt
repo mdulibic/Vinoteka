@@ -5,7 +5,7 @@ import com.example.vinoteka.model.Maltster
 import com.example.vinoteka.model.Sort
 
 data class WineResponse(
-    val id: String,
+    val id: Long,
     val name: String,
     val harvest: String,
     val alcoholPercentage: Float,

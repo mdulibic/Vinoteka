@@ -3,7 +3,7 @@ package com.example.vinoteka.model
 import android.graphics.Bitmap
 
 data class Wine(
-    val id: String,
+    val id: Long,
     val name: String,
     val harvest: String,
     val alcoholPercentage: Float,

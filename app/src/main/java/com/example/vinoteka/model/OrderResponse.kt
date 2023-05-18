@@ -3,7 +3,7 @@ package com.example.vinoteka.model
 import java.sql.Timestamp
 
 data class OrderResponse(
-    val id: String,
+    val id: Long,
     val orderStatus: OrderStatus,
     val totalPrice: Long,
     val paymentMethod: PaymentMethod,
