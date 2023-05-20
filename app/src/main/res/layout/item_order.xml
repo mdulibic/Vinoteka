@@ -1,0 +1,59 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/pink"
+    android:padding="16dp">
+
+    <!-- Order ID -->
+    <TextView
+        android:id="@+id/textOrderId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:text="@string/id_1_s"
+        android:textColor="@color/bgColor"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Order Status -->
+    <TextView
+        android:id="@+id/textOrderStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="@string/status_1_s"
+        android:textColor="@color/bgColor"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Total Price -->
+    <TextView
+        android:id="@+id/textTotalPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="@string/total_price_1_s"
+        android:textColor="@color/bgColor"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Payment Method -->
+    <TextView
+        android:id="@+id/textPaymentMethod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="@string/payment_method_1_s"
+        android:textColor="@color/bgColor"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Creation Timestamp -->
+    <TextView
+        android:id="@+id/textCreationTimestamp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="@string/timestamp_1_s"
+        android:textColor="@color/bgColor"/>
+
+</LinearLayout>
