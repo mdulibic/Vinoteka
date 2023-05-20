@@ -43,7 +43,7 @@ class WineAdapter(
             onItemDelete(id!!)
         }
         fun bind(wine: Wine) {
-            id = wine.id
+            id = wine.id.toString()
             binding.apply {
                 wineName.text = wine.name
                 wineHarvest.text = wine.harvest

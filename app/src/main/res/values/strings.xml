@@ -19,4 +19,9 @@
     <string name="add_wine">Add wine</string>
     <string name="wine_details">Wine details</string>
     <string name="sort">Sort</string>
+    <string name="id_1_s">Id: %1$s</string>
+    <string name="status_1_s">Status: %1$s</string>
+    <string name="total_price_1_s">Total price: %1$s</string>
+    <string name="payment_method_1_s">Payment method: %1$s</string>
+    <string name="timestamp_1_s">Timestamp: %1$s</string>
 </resources>

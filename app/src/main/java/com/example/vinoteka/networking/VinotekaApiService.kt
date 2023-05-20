@@ -1,6 +1,6 @@
 package com.example.vinoteka.networking
 
-import com.example.vinoteka.model.Order
+import com.example.vinoteka.model.OrderResponse
 import com.example.vinoteka.model.Sort
 import com.example.vinoteka.networking.model.AddWineRequest
 import com.example.vinoteka.networking.model.WineResponse
@@ -15,7 +15,7 @@ interface VinotekaApiService {
     suspend fun getWineById(@Path("id") id: String): Response<WineResponse>
 
     @GET("/wine/{id}/orders")
-    suspend fun getOrdersByWineId(@Path("id") id: String): Response<List<Order>>
+    suspend fun getOrdersByWineId(@Path("id") id: String): Response<List<OrderResponse>>
 
     @POST("/wine")
     suspend fun addWine(wine: AddWineRequest): Response<Unit>

@@ -67,7 +67,6 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             },
             onItemDelete = {
                 // viewModel.deleteWine(id = it)
-                viewModel.getWines()
             },
         )
         val spacingDecoration =
