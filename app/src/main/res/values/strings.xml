@@ -24,4 +24,6 @@
     <string name="total_price_1_s">Total price: %1$s</string>
     <string name="payment_method_1_s">Payment method: %1$s</string>
     <string name="timestamp_1_s">Timestamp: %1$s</string>
+    <string name="update_wine">Update wine</string>
+    <string name="orders">Orders</string>
 </resources>

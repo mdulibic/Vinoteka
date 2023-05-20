@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@color/pink"
+    android:layout_marginBottom="8dp"
     android:padding="16dp">
 
     <!-- Order ID -->
@@ -14,7 +15,7 @@
         android:textStyle="bold"
         android:textSize="16sp"
         android:text="@string/id_1_s"
-        android:textColor="@color/bgColor"
+        android:textColor="@color/white"
         android:layout_marginBottom="8dp"/>
 
     <!-- Order Status -->
