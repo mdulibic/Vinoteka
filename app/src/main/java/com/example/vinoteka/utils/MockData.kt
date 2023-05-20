@@ -9,7 +9,7 @@ val maltster = Maltster.DRY
 // Create a list of mock Wine objects
 val wineList = listOf(
     Wine(
-        "1",
+        1,
         "Red Wine",
         "2020",
         14.5f,
@@ -21,13 +21,13 @@ val wineList = listOf(
         "This is a red wine description",
         29.99,
         Sort(
-            "1",
+            1,
             "Cabernet Sauvignon",
             "A full-bodied red wine with rich flavors of dark fruits and a hint of oak.",
         ),
     ),
     Wine(
-        "2",
+        2,
         "White Wine",
         "2019",
         12.0f,
@@ -39,13 +39,13 @@ val wineList = listOf(
         "This is a white wine description",
         24.99,
         Sort(
-            "2",
+            2,
             "Chardonnay",
             "A medium to full-bodied white wine with buttery and creamy flavors.",
         ),
     ),
     Wine(
-        "3",
+        3,
         "Rose Wine",
         "2021",
         11.5f,
@@ -57,13 +57,13 @@ val wineList = listOf(
         "This is a rose wine description",
         19.99,
         Sort(
-            "3",
+            3,
             "Grenache",
             "A versatile red wine with a range of flavors from fruity to spicy.",
         ),
     ),
     Wine(
-        "3",
+        3,
         "Rose Wine",
         "2021",
         11.5f,
@@ -75,13 +75,13 @@ val wineList = listOf(
         "This is a rose wine description",
         19.99,
         Sort(
-            "3",
+            3,
             "Grenache",
             "A versatile red wine with a range of flavors from fruity to spicy.",
         ),
     ),
     Wine(
-        "3",
+        3,
         "Rose Wine",
         "2021",
         11.5f,
@@ -93,13 +93,13 @@ val wineList = listOf(
         "This is a rose wine description",
         19.99,
         Sort(
-            "3",
+            3,
             "Grenache",
             "A versatile red wine with a range of flavors from fruity to spicy.",
         ),
     ),
     Wine(
-        "3",
+        3,
         "Rose Wine",
         "2021",
         11.5f,
@@ -111,13 +111,13 @@ val wineList = listOf(
         "This is a rose wine description",
         19.99,
         Sort(
-            "3",
+            3,
             "Grenache",
             "A versatile red wine with a range of flavors from fruity to spicy.",
         ),
     ),
     Wine(
-        "3",
+        3,
         "Rose Wine",
         "2021",
         11.5f,
@@ -129,7 +129,7 @@ val wineList = listOf(
         "This is a rose wine description",
         19.99,
         Sort(
-            "3",
+            3,
             "Grenache",
             "A versatile red wine with a range of flavors from fruity to spicy.",
         ),
