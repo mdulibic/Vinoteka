@@ -26,6 +26,10 @@ class HomeViewModel @Inject constructor(
     val wineListSuccess: LiveData<List<Wine>>
         get() = _wineListSuccess
 
+    private val _filteredWineListSuccess = MutableLiveData<List<Wine>>()
+    val filteredWineListSuccess: LiveData<List<Wine>>
+        get() = _filteredWineListSuccess
+
     private val _sortsSuccess = MutableLiveData<List<Sort>>()
     val sortsSuccess: LiveData<List<Sort>>
         get() = _sortsSuccess
@@ -43,6 +47,20 @@ class HomeViewModel @Inject constructor(
         get() = _deleteWineSuccess
 
     fun getAdminEmail() = sessionManager.adminEmail
+
+    fun filterListByKeyword(keyword: String) {
+        val filtered = wineListSuccess.value?.filter {
+            isSubstringMatch(it.name, keyword) ||
+                isSubstringMatch(it.harvest.toString(), keyword) ||
+                isSubstringMatch(it.maltster.value, keyword) ||
+                isSubstringMatch(it.sort.name, keyword)
+        }
+        _filteredWineListSuccess.value = filtered!!
+    }
+
+    private fun isSubstringMatch(string: String, substring: String): Boolean {
+        return string.lowercase().contains(substring.lowercase())
+    }
 
     fun updateWineDetails(id: String, wine: WineRequest) = viewModelScope.launch {
         wineRepository.updateWineById(id = id.toLong(), wine = wine)
@@ -105,7 +123,7 @@ class HomeViewModel @Inject constructor(
             description = this.description,
             price = this.price,
             sort = this.sort,
-            orders = this.orders
+            orders = this.orders,
         )
     }
 

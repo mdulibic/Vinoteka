@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -25,6 +26,18 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
     private lateinit var viewModel: HomeViewModel
 
+    private val onQueryTextListener = object : SearchView.OnQueryTextListener {
+        override fun onQueryTextSubmit(query: String?): Boolean {
+            if (!query.isNullOrBlank()) viewModel.filterListByKeyword(keyword = query.toString())
+            return true
+        }
+
+        override fun onQueryTextChange(newText: String?): Boolean {
+            if (newText.isNullOrBlank()) viewModel.getWines()
+            return true
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -45,6 +58,8 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
         viewModel.getWines()
         observeLiveData()
+
+        binding.searchView.setOnQueryTextListener(onQueryTextListener)
     }
 
     private fun observeLiveData() {
@@ -54,6 +69,10 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
         viewModel.deleteWineSuccess.observe(viewLifecycleOwner) {
             viewModel.getWines()
+        }
+
+        viewModel.filteredWineListSuccess.observe(viewLifecycleOwner) {
+            wineListAdapter.setData(it)
         }
     }
 
@@ -88,5 +107,10 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
     override fun getToolbar(): Toolbar? {
         return null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getWines()
     }
 }
