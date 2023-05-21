@@ -1,7 +1,6 @@
 package com.example.vinoteka.networking.model
 
-import android.graphics.Bitmap
-import com.example.vinoteka.model.Maltster
+import com.example.vinoteka.model.OrderResponse
 import com.example.vinoteka.model.Sort
 
 data class WineResponse(
@@ -16,5 +15,6 @@ data class WineResponse(
     val gastroRecommendation: String,
     val description: String,
     val price: Double,
-    val sort: Sort
+    val sort: Sort,
+    val orders: List<OrderResponse>
 )

@@ -17,6 +17,7 @@ import okio.Buffer
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import timber.log.Timber
+import java.sql.Timestamp
 import java.util.*
 import javax.inject.Singleton
 
@@ -50,6 +51,7 @@ object NetworkModule {
     fun provideMoshi(): Moshi =
         Moshi.Builder()
             .add(KotlinJsonAdapterFactory())
+            .add(Timestamp::class.java, Rfc3339DateJsonAdapter().nullSafe())
             .add(Date::class.java, Rfc3339DateJsonAdapter().nullSafe())
             .build()
 

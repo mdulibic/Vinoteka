@@ -14,5 +14,6 @@ data class Wine(
     val gastroRecommendation: String,
     val description: String,
     val price: Double,
-    val sort: Sort
+    val sort: Sort,
+    val orders: List<OrderResponse>
 )

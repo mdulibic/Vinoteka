@@ -6,10 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.vinoteka.R
 import com.example.vinoteka.databinding.FragmentWineDetailsBinding
 import com.example.vinoteka.model.Sort
 import com.example.vinoteka.networking.model.WineRequest
+import com.example.vinoteka.utils.OrderAdapter
+import com.example.vinoteka.utils.SpacingItemDecorator
+import com.example.vinoteka.utils.VerticalSpaceItemDecorator
+import com.example.vinoteka.utils.WineAdapter
+import com.example.vinoteka.utils.toPx
 import com.example.vinoteka.viewModel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,7 +30,9 @@ class WineDetailsFragment : BaseFragment(R.layout.fragment_wine_details) {
 
     private val wineId by lazy { WineDetailsFragmentArgs.fromBundle(requireArguments()).id }
 
-    val sorts = arrayListOf<Sort>()
+    private val sorts = arrayListOf<Sort>()
+
+    private lateinit var orderAdapter: OrderAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,6 +48,7 @@ class WineDetailsFragment : BaseFragment(R.layout.fragment_wine_details) {
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
         observeLiveData()
         setOnClickClickListeners()
+        initRecyclerView()
         viewModel.getWineById(id = wineId)
 
         viewModel.getSorts()
@@ -46,6 +56,17 @@ class WineDetailsFragment : BaseFragment(R.layout.fragment_wine_details) {
 
     override fun getToolbar(): Toolbar? {
         return null
+    }
+
+    private fun initRecyclerView() {
+        orderAdapter = OrderAdapter()
+        val decoration =
+            VerticalSpaceItemDecorator(resources.getInteger(R.integer.margin_tv_item).toPx())
+        binding.rvOrders.apply {
+            adapter = orderAdapter
+            layoutManager = LinearLayoutManager(context)
+            addItemDecoration(decoration)
+        }
     }
 
     private fun observeLiveData() {
@@ -63,6 +84,7 @@ class WineDetailsFragment : BaseFragment(R.layout.fragment_wine_details) {
                 editTextPrice.setText(wine?.price.toString())
                 editTextSort.setText(wine?.sort?.name)
             }
+            orderAdapter.setData(wine.orders)
         }
 
         viewModel.wineDetailsUpdateSuccess.observe(viewLifecycleOwner) {

@@ -1,60 +1,88 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@color/pink"
-    android:layout_marginBottom="8dp"
-    android:padding="16dp">
+    android:elevation="16dp"
+    app:cardCornerRadius="8dp"
+    android:backgroundTint="#c8e2e6"
+    app:cardUseCompatPadding="true">
 
-    <!-- Order ID -->
-    <TextView
-        android:id="@+id/textOrderId"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:text="@string/id_1_s"
-        android:textColor="@color/white"
-        android:layout_marginBottom="8dp"/>
+        android:padding="16dp">
 
-    <!-- Order Status -->
-    <TextView
-        android:id="@+id/textOrderStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text="@string/status_1_s"
-        android:textColor="@color/bgColor"
-        android:layout_marginBottom="8dp"/>
+        <ImageView
+            android:id="@+id/ic_cart"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_cart"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
 
-    <!-- Total Price -->
-    <TextView
-        android:id="@+id/textTotalPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text="@string/total_price_1_s"
-        android:textColor="@color/bgColor"
-        android:layout_marginBottom="8dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="@id/ic_cart"
+            app:layout_constraintStart_toEndOf="@id/ic_cart">
 
-    <!-- Payment Method -->
-    <TextView
-        android:id="@+id/textPaymentMethod"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text="@string/payment_method_1_s"
-        android:textColor="@color/bgColor"
-        android:layout_marginBottom="8dp"/>
+            <!-- Order ID -->
+            <TextView
+                android:id="@+id/textOrderId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/id_1_s"
+                android:textColor="@color/bgColor"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-    <!-- Creation Timestamp -->
-    <TextView
-        android:id="@+id/textCreationTimestamp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:text="@string/timestamp_1_s"
-        android:textColor="@color/bgColor"/>
+            <!-- Order Status -->
+            <TextView
+                android:id="@+id/textOrderStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/status_1_s"
+                android:textColor="@color/bgColor"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-</LinearLayout>
+            <!-- Total Price -->
+            <TextView
+                android:id="@+id/textTotalPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/total_price_1_s"
+                android:textColor="@color/bgColor"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Payment Method -->
+            <TextView
+                android:id="@+id/textPaymentMethod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/payment_method_1_s"
+                android:textColor="@color/bgColor"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Creation Timestamp -->
+            <TextView
+                android:id="@+id/textCreationTimestamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/timestamp_1_s"
+                android:textColor="@color/bgColor"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

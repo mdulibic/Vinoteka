@@ -105,6 +105,7 @@ class HomeViewModel @Inject constructor(
             description = this.description,
             price = this.price,
             sort = this.sort,
+            orders = this.orders
         )
     }
 
