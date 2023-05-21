@@ -87,7 +87,7 @@ class HomeViewModel @Inject constructor(
             gastroRecommendation = this.gastroRecommendation,
             description = this.description,
             price = this.price,
-            sort = this.sort.id,
+            sortId = this.sort.id,
         )
     }
 

@@ -89,7 +89,7 @@ class WineDetailsFragment : BaseFragment(R.layout.fragment_wine_details) {
                 gastroRecommendation = binding.editTextGastroRecommendation.text.toString(),
                 description = binding.editTextDescription.text.toString(),
                 price = binding.editTextPrice.text.toString().toDouble(),
-                sort = sortId,
+                sortId = sortId,
             )
             viewModel.updateWineDetails(id = wineId, wine = wine)
         }

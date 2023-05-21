@@ -123,7 +123,7 @@ class AddWineFragment : BaseFragment(R.layout.fragment_add_wine) {
                 gastroRecommendation = binding.editTextGastroRecommendation.text.toString(),
                 description = binding.editTextDescription.text.toString(),
                 price = binding.editTextPrice.text.toString().toDouble(),
-                sort = selectedSort!!,
+                sortId = selectedSort!!,
             )
             viewModel.addWine(wine = wine)
             svm.navigate(AddWineFragmentDirections.actionAddWineFragmentToNavigationHome())

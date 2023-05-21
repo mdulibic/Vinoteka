@@ -23,7 +23,7 @@ interface VinotekaApiService {
     @DELETE("/wine/{id}")
     suspend fun deleteWine(@Path("id") id: Long): Response<Unit>
 
-    @PUT("/{id}")
+    @PUT("/wine/{id}")
     suspend fun updateWine(@Path("id") id: Long, @Body wine: WineRequest): Response<Unit>
 
     @GET("/sort")
