@@ -1,10 +1,8 @@
 package com.example.vinoteka.networking.model
 
-import com.example.vinoteka.model.Sort
-
-data class AddWineRequest(
+data class WineRequest(
     val name: String,
-    val harvest: String,
+    val harvest: Int,
     val alcoholPercentage: Float,
     val maltster: String,
     val quality: String,

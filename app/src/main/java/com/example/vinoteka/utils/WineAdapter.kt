@@ -46,7 +46,7 @@ class WineAdapter(
             id = wine.id.toString()
             binding.apply {
                 wineName.text = wine.name
-                wineHarvest.text = wine.harvest
+                wineHarvest.text = wine.harvest.toString()
                 winePrice.text = binding.root.context.resources.getString(R.string.cijena_1_s_eur, wine.price.toString())
             }
             binding.root.setOnClickListener(clickListener)

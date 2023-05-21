@@ -12,7 +12,7 @@ import com.example.vinoteka.R
 import com.example.vinoteka.databinding.FragmentAddWineBinding
 import com.example.vinoteka.model.Maltster
 import com.example.vinoteka.model.Sort
-import com.example.vinoteka.networking.model.AddWineRequest
+import com.example.vinoteka.networking.model.WineRequest
 import com.example.vinoteka.viewModel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -49,7 +49,7 @@ class AddWineFragment : BaseFragment(R.layout.fragment_add_wine) {
 
         maltsters.removeLast()
 
-        // viewModel.getSorts()
+        viewModel.getSorts()
         observeLiveData()
 
         val spinner = binding.maltsterSpinner
@@ -112,9 +112,9 @@ class AddWineFragment : BaseFragment(R.layout.fragment_add_wine) {
 
     private fun setOnClick() {
         binding.btnAdd.setOnClickListener {
-            val wine = AddWineRequest(
+            val wine = WineRequest(
                 name = binding.editTextName.text.toString(),
-                harvest = binding.editTextHarvest.text.toString(),
+                harvest = binding.editTextHarvest.text.toString().toInt(),
                 alcoholPercentage = binding.editTextAlcoholPercentage.text.toString().toFloat(),
                 maltster = selectedMaltster!!.value,
                 quality = binding.editTextQuality.text.toString(),

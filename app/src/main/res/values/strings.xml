@@ -26,4 +26,5 @@
     <string name="timestamp_1_s">Timestamp: %1$s</string>
     <string name="update_wine">Update wine</string>
     <string name="orders">Orders</string>
+    <string name="temperature_of_serving">Temperature of serving</string>
 </resources>

@@ -5,7 +5,7 @@ import android.graphics.Bitmap
 data class Wine(
     val id: Long,
     val name: String,
-    val harvest: String,
+    val harvest: Int,
     val alcoholPercentage: Float,
     val maltster: Maltster,
     val quality: String,

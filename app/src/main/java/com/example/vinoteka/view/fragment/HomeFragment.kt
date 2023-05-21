@@ -12,7 +12,6 @@ import com.example.vinoteka.databinding.FragmentHomeBinding
 import com.example.vinoteka.utils.SpacingItemDecorator
 import com.example.vinoteka.utils.WineAdapter
 import com.example.vinoteka.utils.toPx
-import com.example.vinoteka.utils.wineList
 import com.example.vinoteka.viewModel.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -44,13 +43,17 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
         binding.tvAdminName.text = viewModel.getAdminEmail()
 
-        // viewModel.getWines()
+        viewModel.getWines()
         observeLiveData()
     }
 
     private fun observeLiveData() {
         viewModel.wineListSuccess.observe(viewLifecycleOwner) {
             wineListAdapter.setData(it)
+        }
+
+        viewModel.deleteWineSuccess.observe(viewLifecycleOwner) {
+            viewModel.getWines()
         }
     }
 
@@ -66,7 +69,7 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
                 svm.navigate(HomeFragmentDirections.actionNavigationHomeToNavigationWineDetails(it))
             },
             onItemDelete = {
-                // viewModel.deleteWine(id = it)
+                viewModel.deleteWine(id = it)
             },
         )
         val spacingDecoration =
@@ -76,8 +79,6 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             layoutManager = GridLayoutManager(requireContext(), 2)
             addItemDecoration(spacingDecoration)
         }
-
-        wineListAdapter.setData(wineList)
     }
 
     override fun onDestroyView() {

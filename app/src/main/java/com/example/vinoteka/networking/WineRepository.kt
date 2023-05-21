@@ -2,7 +2,7 @@ package com.example.vinoteka.networking
 
 import com.example.vinoteka.model.OrderResponse
 import com.example.vinoteka.model.Sort
-import com.example.vinoteka.networking.model.AddWineRequest
+import com.example.vinoteka.networking.model.WineRequest
 import com.example.vinoteka.networking.model.WineResponse
 import retrofit2.Response
 import javax.inject.Inject
@@ -13,7 +13,15 @@ class WineRepository @Inject constructor(private val apiService: VinotekaApiServ
         return apiService.getWines()
     }
 
-    suspend fun getOrders(id: String): Response<List<OrderResponse>> {
+    suspend fun getWineById(id: Long): Response<WineResponse> {
+        return apiService.getWineById(id = id)
+    }
+
+    suspend fun updateWineById(id: Long, wine: WineRequest): Response<Unit> {
+        return apiService.updateWine(id = id, wine = wine)
+    }
+
+    suspend fun getOrders(id: Long): Response<List<OrderResponse>> {
         return apiService.getOrdersByWineId(id = id)
     }
 
@@ -21,11 +29,11 @@ class WineRepository @Inject constructor(private val apiService: VinotekaApiServ
         return apiService.getSorts()
     }
 
-    suspend fun addWine(wine: AddWineRequest) {
+    suspend fun addWine(wine: WineRequest) {
         apiService.addWine(wine = wine)
     }
 
-    suspend fun deleteWine(id: String) {
+    suspend fun deleteWine(id: Long) {
         apiService.deleteWine(id = id)
     }
 }
