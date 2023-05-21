@@ -23,10 +23,10 @@
 
         <ImageView
             android:id="@+id/wineImage"
-            android:layout_width="0dp"
+            android:layout_width="200dp"
             android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/korlat"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_wine_1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnDelete" />

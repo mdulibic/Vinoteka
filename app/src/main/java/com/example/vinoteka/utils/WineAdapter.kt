@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.vinoteka.R
 import com.example.vinoteka.databinding.ItemWineProductBinding
 import com.example.vinoteka.model.Wine
+import kotlin.random.Random
 
 /**
  * Adapter for the list of wines.
@@ -17,9 +18,8 @@ import com.example.vinoteka.model.Wine
 class WineAdapter(
     private var wineList: ArrayList<Wine> = arrayListOf(),
     private val onItemClicked: (String) -> Unit,
-    private val onItemDelete: (String) -> Unit
+    private val onItemDelete: (String) -> Unit,
 ) : RecyclerView.Adapter<WineAdapter.WineViewHolder>() {
-
 
     /**
      * View holder for the adapter.
@@ -32,22 +32,35 @@ class WineAdapter(
         private var id: String? = null
 
         private val clickListener = View.OnClickListener {
-            if(id == null) return@OnClickListener
+            if (id == null) return@OnClickListener
 
             onItemClicked(id!!)
         }
 
         private val deleteClickListener = View.OnClickListener {
-            if(id == null) return@OnClickListener
+            if (id == null) return@OnClickListener
 
             onItemDelete(id!!)
         }
+
         fun bind(wine: Wine) {
             id = wine.id.toString()
             binding.apply {
+                wineImage.setImageResource(
+                    when (Random.nextInt(1, 5)) {
+                        1 -> R.drawable.ic_wine_1
+                        2 -> R.drawable.ic_wine_2
+                        3 -> R.drawable.ic_wine_3
+                        4 -> R.drawable.ic_wine_4
+                        else -> R.drawable.ic_wine_1
+                    },
+                )
                 wineName.text = wine.name
                 wineHarvest.text = wine.harvest.toString()
-                winePrice.text = binding.root.context.resources.getString(R.string.cijena_1_s_eur, wine.price.toString())
+                winePrice.text = binding.root.context.resources.getString(
+                    R.string.cijena_1_s_eur,
+                    wine.price.toString(),
+                )
             }
             binding.root.setOnClickListener(clickListener)
             binding.btnDelete.setOnClickListener(deleteClickListener)

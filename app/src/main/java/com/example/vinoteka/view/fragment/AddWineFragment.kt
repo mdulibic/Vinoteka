@@ -56,7 +56,7 @@ class AddWineFragment : BaseFragment(R.layout.fragment_add_wine) {
         ArrayAdapter(
             requireContext(),
             android.R.layout.simple_spinner_item,
-            maltsters.map { it.name },
+            maltsters.map { it.value },
         ).also { adapter ->
             // Specify the layout to use when the list of choices appears
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
